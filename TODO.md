@@ -26,3 +26,13 @@ So, for example, say I want a scaffold for making a new package:
 - Create a few files in those folders
 
 I would want an instruction set that provides a way to execute that
+
+---
+
+Break things down into little chunks (chunking, map/reduce)
+
+- The tricky bit is modifying code that needs to be merged together in some way
+- Adding lines in a standard format is fine (e.g. gitignore)
+- Or where the details are handled automatically (e.g. npm install)
+- Tricky thing is javascript code/react components
+- If you can find a parser like esprima that can handle it, or write parsers that can work out what to do, then brilliant.

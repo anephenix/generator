@@ -25,3 +25,19 @@ export function addAction({action, actionFn, override }:AddActionParams) {
   if (actions[action] && !override) throw new Error('Action already exists');
   actions[action] = actionFn;
 }
+
+/* 
+
+  I'm starting to think that actions is a good object, but that it could end up containing many actions,
+  and that it will become a headache to manage that.
+  
+  Therefore, actions needs to be a namespace, one that can be referenced and managed easily, potentially.
+
+  e.g. git.addToGitIgnore({filePath})
+  e.g. nextjs.addPage 
+  e.g. mcg.addModel
+  e.g. knex.addMigration
+  e.g. rcg.addComponent
+  e.g. npm.installDependency
+
+*/
