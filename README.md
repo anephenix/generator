@@ -1,6 +1,6 @@
 # Generator
 
-A library for scaffolding code
+A library for scaffolding code so that you can save time and effort. 
 
 ## Dependencies
 
