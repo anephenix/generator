@@ -1,5 +1,13 @@
 # TODO
 
+## Now
+
+- [x] Replace tsdx with Typescript
+- [ ] Replace jest with mocha and nyc
+- [ ] Figure out if you can craft sub-libraries with it
+
+## Next
+
 - [x] It should have a way to create a folder
 - [x] It should have a way to create a file
 - [x] It should have a way to run a custom command

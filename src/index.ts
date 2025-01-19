@@ -6,11 +6,13 @@ import {
   Instruction,
 } from './global';
 
+type ActionFn = (data: unknown) => Promise<void>;
+
 const log = false;
 
 async function processInstruction ({action, data}:Instruction) {
   if (!actions[action]) throw new Error('No action found for ' + action);
-  const actionFn:Function = actions[action];
+  const actionFn:ActionFn = actions[action];
   await actionFn(data);  
 }
 

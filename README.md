@@ -24,4 +24,4 @@ npm t
 
 ## License and Credits
 
-&copy;2022 Anephenix OÜ. All rights reserved.
+&copy;2025 Anephenix OÜ. All rights reserved.

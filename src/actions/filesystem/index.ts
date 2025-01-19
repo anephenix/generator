@@ -2,22 +2,24 @@
 import { mkdir, stat, writeFile, readFile } from 'fs/promises';
 
 // Types
-import { DirectoryPath, CreateFileParams, CreateFilesParams, ModifyFileParams, CreateDirectoryParams, CreateDirectoriesParams } from '../../global';
+import { DirectoryPath, CreateFileParams, CreateFilesParams, ModifyFileParams, CreateDirectoryParams, CreateDirectoriesParams, ErrnoException } from '../../global';
+
+function isErrnoException(err: unknown): err is ErrnoException {
+  return (err as ErrnoException).code !== undefined;
+}
 
 // Checks if the directory already exists
-export async function checkIfDirectoryExists(directoryPath:DirectoryPath) {
-    try {
-      const check = await stat(directoryPath);
-      return check.isDirectory();
-    } catch (err) {
-      // @ts-ignore
-      if (err?.code === 'ENOENT') { 
-        return false;
-      } else {
-        throw err;
-      }
+export async function checkIfDirectoryExists(directoryPath: DirectoryPath) {
+  try {
+    const check = await stat(directoryPath);
+    return check.isDirectory();
+  } catch (err: unknown) {
+    if (isErrnoException(err) && err.code === 'ENOENT') {
+      return false;
     }
+    throw err; // Re-throw if the error is not ENOENT
   }
+}
   
 // Creates a directory
 // TODO - work out if recursive changes the way of calling this
